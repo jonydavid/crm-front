@@ -1,82 +1,82 @@
 export default [
     {
-      title: '1970s',
-      languages: [
+      title: 'Casos',
+      data: [
         {
           name: 'C',
-          year: 1972
+          id: 1972
         }
       ]
     },
     {
-      title: '1980s',
-      languages: [
+      title: 'Empresas',
+      data: [
         {
           name: 'C++',
-          year: 1983
+          id: 1983
         },
         {
           name: 'Perl',
-          year: 1987
+          id: 1987
         }
       ]
     },
     {
-      title: '1990s',
-      languages: [
+      title: 'Contactos',
+      data: [
         {
           name: 'Haskell',
-          year: 1990
+          id: 1990
         },
         {
           name: 'Python',
-          year: 1991
+          id: 1991
         },
         {
           name: 'Java',
-          year: 1995
+          id: 1992
         },
         {
           name: 'JavaScript',
-          year: 1995
+          id: 1993
         },
         {
           name: 'PHP',
-          year: 1995
+          id: 1994
         },
         {
           name: 'Ruby',
-          year: 1995
+          id: 1995
         }
       ]
     },
     {
-      title: '2000s',
-      languages: [
+      title: 'leads',
+      data: [
         {
           name: 'C#',
-          year: 2000
+          id: 2000
         },
         {
           name: 'Scala',
-          year: 2003
+          id: 2003
         },
         {
           name: 'Clojure',
-          year: 2007
+          id: 2007
         },
         {
           name: 'Go',
-          year: 2009
+          id: 2009
         }
       ]
     },
     {
-      title: '2010s',
-      languages: [
+      title: 'Otros',
+      data: [
         {
           name: 'Elm',
-          year: 2012
+          id: 2012
         }
       ]
     }

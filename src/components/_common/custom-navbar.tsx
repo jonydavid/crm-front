@@ -27,18 +27,20 @@ function CustomNavbar() {
               </NavDropdown> */}
             </Nav>
 
-            <Form className="d-flex">
-              {/* <FormControl
+            {/* <Form className="d-flex">
+              <FormControl
                 type="search"
                 placeholder="Buscar"
                 className="me-2"
                 aria-label="Search"
-              /> */}
+              />
               
-              <SearchGlobal />
+              
 
               <Button variant="outline-success">Buscar</Button>
-            </Form>
+            </Form> */}
+
+            <SearchGlobal />
 
             <Nav>
               <Nav.Link href="#deets">icon1</Nav.Link>

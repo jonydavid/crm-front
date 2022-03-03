@@ -1,3 +1,5 @@
+$color: #209FD3;
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -38,7 +40,7 @@
 .codepenLink {
   margin-top: 9px;
   font-size: 20px;
-  color: #209FD3;
+  color: $color;
   align-self: flex-start;
 }
 
@@ -52,5 +54,6 @@
 }
 
 .autosugestLoading {
-  color:red;
+  color:$color;
+  margin-left:-35px;
 }

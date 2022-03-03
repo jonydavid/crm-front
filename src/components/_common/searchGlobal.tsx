@@ -1,16 +1,29 @@
 import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
-import languages from './languages';
+import debounce from 'lodash.debounce';
+import axios, { AxiosError } from 'axios'
 
 import styles from '../../../public/styles/Autosuggest.module.scss';
 import theme from '../../../public/styles/theme.module.scss';
+import { Spinner } from 'react-bootstrap';
+
+import languages from './languages';
 
 // import isMobile from 'ismobilejs';
 
 // const focusInputOnSuggestionClick = !isMobile.any;
 
-//esto puede estar en un archivo utils.js
+//TODO ESTO VA A helpers o utils.js---- 
 const escapeRegexCharacters = (str:string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+function handleAxiosError(error: AxiosError<any, any>) {
+    throw new Error('Function not implemented.');
+}
+function handleUnexpectedError(error: unknown) {
+    throw new Error('Function not implemented.');
+}
+// ------------------------------------
+
 
 const getSuggestions = (value:string) => {
     const escapedValue = escapeRegexCharacters(value.trim());
@@ -25,8 +38,8 @@ const getSuggestions = (value:string) => {
         .map(section => {
             return {
                 title: section.title,
-                languages: section.languages.filter(language =>
-                regex.test(language.name)
+                languages: section.data.filter(data =>
+                regex.test(data.name)
                 )
             };
         })
@@ -45,53 +58,58 @@ const SearchGlobal = () => {
     const [value, setValue]= useState<string>('')
     const [suggestions, setSuggestion]= useState<any[]>([])
     const [loading, setLoading]= useState<boolean>(false)
-    var lastRequestId:any = null;
 
-
-    const loadSuggestions = (value:any) => {
-        // Cancel the previous request
-        if (lastRequestId !== null) {
-          clearTimeout(lastRequestId);
-        }
-        
+    const fetchData = async (value:any) => {
         setLoading(true);
-        
-        // request
-        lastRequestId = setTimeout(() => {
-            setLoading(false);
+        // // request
+        setTimeout(() => {
             setSuggestion(getSuggestions(value))
+            setLoading(false);
         }, 500);
+
+        // let user: User = null;
+        // try {
+        //     const { data } = await axios.get('/user?ID=12345');
+        //     user = data.userDetails;
+        //     setSuggestion(getSuggestions(user))
+        //     setLoading(false);
+        // } catch (error) {
+        //     if (axios.isAxiosError(error)) {
+        //         handleAxiosError(error);
+        //         setLoading(false);
+        //     } else {
+        //         handleUnexpectedError(error);
+        //         setLoading(false);
+        //     }
+        // }
     }
 
     const onChange = (event:any, { newValue }:any) => {
         setValue(newValue)
     }
 
-    // const debounce = (func:any) => {
-    //     let timer 
-    // }
-
-    // const optimizedSearch = useCallback(debounce(onChange), [])
+    const debouncedSearch = useCallback(
+        debounce((value:any) => fetchData(value), 300),
+        []
+    )
 
     const onSuggestionsFetchRequested = ({ value }:any) => {
-        loadSuggestions(value)
+        debouncedSearch(value)
     }
 
     const onSuggestionsClearRequested = () => {
         setSuggestion([])
     }
 
-    const shouldRenderSuggestions = (value:any, reason:any) => {
-        return value.trim().length > 0;
+    const shouldRenderSuggestions = (value:string, reason:any) => {
+        return value.trim().length > 1;
     }
 
     const inputProps = {
-        placeholder: "Buscar",
+        placeholder: "Buscar...",
         value,
         onChange: onChange
     }
-
-    const status = (loading ? 'Loading...' : 'blabla..');
 
     return (
         <>
@@ -111,8 +129,7 @@ const SearchGlobal = () => {
                 theme={theme}
                 id="multiple-sections-example"
             />
-            
-            <span className={styles.autosuggestLoading}>{status}</span>
+            {loading && <Spinner className={styles.autosugestLoading} color='primary' animation={'border'} />}
         </>
            
     );
