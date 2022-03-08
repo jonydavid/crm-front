@@ -2,12 +2,13 @@
 import Link from 'next/link'
 import { Button, Container, Form, FormControl, Nav, NavDropdown } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
+import { BsBank2 } from "react-icons/bs";
 
 function CustomNavbar() {
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/">CRM</Navbar.Brand>
+          <Navbar.Brand href="/"><BsBank2 size="30px"/>    CRM</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

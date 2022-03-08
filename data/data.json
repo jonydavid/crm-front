@@ -1,0 +1,24 @@
+[
+  {
+      "id": {
+          "title":"ID",
+          "value":"4229463000004367347"
+      },
+      "Tipo_de_Documento": {
+          "title": "Tipo de Documento",
+          "value": "CÉDULA"
+      },
+      "Nro_Documento_Cliente": {
+          "title": "Nro. Cedula",
+          "value": "4186970"
+      },
+      "Correo_electronico": {
+          "title": "Email", 
+          "value": "test@test.com"
+      },
+      "Sucursal_Recepcion_auto": {
+          "title":"Sucursal", 
+          "value":"01- CASA MATRIZ"
+      }
+  }
+]

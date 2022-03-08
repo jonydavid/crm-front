@@ -1,0 +1,506 @@
+[
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367347"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367348"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367349"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367350"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"RECLAMO"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367351"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367352"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367353"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367354"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367355"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367356"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367357"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    },
+    {
+        "id": {
+            "title":"ID",
+            "value":"4229463000004367358"
+        },
+        "Tipo_de_Documento": {
+            "title": "Tipo de Documento",
+            "value": "CÉDULA"
+        },
+        "Nro_Documento_Cliente": {
+            "title": "Nro. Cedula",
+            "value": "4186970"
+        },
+        "Correo_electronico": {
+            "title": "Email", 
+            "value": "test@test.com"
+        },
+        "Sucursal_Recepcion_auto": {
+            "title":"Sucursal", 
+            "value":"01- CASA MATRIZ"
+        },
+        "Phone": {
+            "title":"Telefono",
+            "value":"021644872"
+        },
+        "Nro_Ticket":{
+            "title":"Nro. Ticket",
+            "value":"20125"
+        },
+        "Status": {
+            "title":"Estado",
+            "value":"DERIVADO"
+        },
+        "Fecha_hora_creado_auto":{
+            "title":"Fecha Creacion",
+            "value":"2022-02-24T13:42:47-03:00"
+        },
+        "Type":{
+            "title":"Tipo",
+            "value":"CONSULTA"
+        }
+    }
+]

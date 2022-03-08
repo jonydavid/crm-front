@@ -1,26 +1,29 @@
 import {useState} from "react";
 import {listCompanies} from "../../services/companyService";
 import {CompanyModel} from "../../models/Company";
+import Cases from "components/case/data-case";
+import SideFilter from "components/case/side-filter";
 
 import styles from '../../../public/styles/case/Case.module.scss'
+import { Card, Col, Container, Row } from "react-bootstrap";
 
-interface Props {
-  data: CompanyModel[]
-}
+export default function Index() {
 
-export default function Index({data}: Props) {
-  const [mensaje, setMensaje]= useState('hola')
-  const [mensaje2, setMensaje2]= useState('hola')
-  
-  const handleClick = () => {
-    setMensaje2('que tal')
+  const styles = {
+    marginTop:'15px'
   }
-  
-  return <>
-    <p>{ mensaje}</p>
-    <button onClick={handleClick}>Saluda</button>
-    <p className={styles.prueba}>{mensaje2}</p>
-  </>
+  return (<>
+  <Container style={styles} fluid>
+    <Row>
+      <Col xs={3}>
+        <SideFilter/>
+      </Col>
+      <Col xs={9}>
+          <Cases/>
+      </Col>
+    </Row>
+  </Container>
+  </>)
 }
  export async function getServerSideProps() {
    const data = await listCompanies()
