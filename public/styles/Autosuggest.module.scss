@@ -1,0 +1,59 @@
+$color: #209FD3;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 34 * 20px;
+  margin: (16 * 9px) (0.5 * 9px) 0;
+
+  @media (max-width: 719px) {
+    flex-direction: column;
+    width: 14 * 20px;
+  }
+
+  @media (max-width: 499px) {
+    margin-top: 12 * 9px;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  width: 15 * 20px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 5 * 9px;
+
+  @media (max-width: 499px) {
+    font-size: 25px;
+  }
+}
+
+.description {
+  margin-top: 9px;
+  font-size: 20px;
+}
+
+.codepenLink {
+  margin-top: 9px;
+  font-size: 20px;
+  color: $color;
+  align-self: flex-start;
+}
+
+.autosuggest {
+  margin-top: 6 * 9px;
+
+  @media (max-width: 719px) {
+    margin-top: 3 * 9px;
+    margin-left: 0;
+  }
+}
+
+.autosugestLoading {
+  color:$color;
+  margin-left:-35px;
+}

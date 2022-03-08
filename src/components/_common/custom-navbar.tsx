@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Button, Container, Form, FormControl, Nav, NavDropdown } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import { BsBank2 } from "react-icons/bs";
+import SearchGlobal from './searchGlobal'
 
 function CustomNavbar() {
     return (
@@ -27,15 +28,20 @@ function CustomNavbar() {
               </NavDropdown> */}
             </Nav>
 
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
               <FormControl
                 type="search"
-                placeholder="Search"
+                placeholder="Buscar"
                 className="me-2"
                 aria-label="Search"
               />
+              
+              
+
               <Button variant="outline-success">Buscar</Button>
-            </Form>
+            </Form> */}
+
+            <SearchGlobal />
 
             <Nav>
               <Nav.Link href="#deets">icon1</Nav.Link>
