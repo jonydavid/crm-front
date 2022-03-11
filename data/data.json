@@ -1,24 +1,36 @@
 [
   {
-      "id": {
-          "title":"ID",
-          "value":"4229463000004367347"
-      },
-      "Tipo_de_Documento": {
-          "title": "Tipo de Documento",
-          "value": "CÉDULA"
-      },
-      "Nro_Documento_Cliente": {
-          "title": "Nro. Cedula",
-          "value": "4186970"
-      },
-      "Correo_electronico": {
-          "title": "Email", 
-          "value": "test@test.com"
-      },
-      "Sucursal_Recepcion_auto": {
-          "title":"Sucursal", 
-          "value":"01- CASA MATRIZ"
-      }
+    "id": 1,
+    "Creado el": "10/03/2022",
+    "Numero de Ticket": null,
+    "Tipo": "test",
+    "Subtipo": "test",
+    "Tipificacion": "test",
+    "Sucursal Recepcion": null,
+    "Hora de Recepcion": null,
+    "Sucursal Afectada": null,
+    "Estado": "test",
+    "Origen": "test",
+    "Subject": null,
+    "Descripcion": null,
+    "Dueño del caso": null,
+    "Areas Resolutoras": null,
+    "Empresa": " Test",
+    "Direccion de Llamada": "Entrada",
+    "Tags": null,
+    "Actualizado el": null,
+    "Solucion": null,
+    "Comentario": null,
+    "Pedido de extension": "False",
+    "Oficial de Negocios": null,
+    "Promotor": "Core.Entities.Contact.Contact",
+    "Numero de Comentarios": 0,
+    "Contacto": null,
+    "Email": null,
+    "Nro de Cliente": null,
+    "Telfono Contacto": null,
+    "Contacto Full name": null,
+    "Sucursal Cliente": null,
+    "Layout": null
   }
 ]
