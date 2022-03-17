@@ -1,4 +1,4 @@
-import { componentsHelpers } from "helpers/componentsHelpers";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import {
   Container,
@@ -11,21 +11,37 @@ import {
 } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { IoCaretDown } from "react-icons/io5";
-import dataCase from "../../../data/prueba.json";
 
 function SideFilter() {
-  const [headers, setHeaders] = useState({});
   const [values, setValues] = useState([]);
 
   useEffect(() => {
-    setHeaders(componentsHelpers.mapHeader(dataCase) as any);
-    setValues(componentsHelpers.mapValue(dataCase) as any);
+    const request: any = {
+      method: "get",
+      url: "https://localhost:5001/v1/api/Filter/cases",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios(request)
+      .then(function (response) {
+        setValues(response.data);
+      })
+      .catch(function (error) {
+        alert(error);
+      });
   }, []);
 
   const style = {
     card: {
       marginTop: "67px",
       borderRadius: "10px 10px 0 0",
+    },
+    card_header: {
+      background: "transparent",
+      borderBottom: "0px",
     },
     input: {
       borderRadius: "0% 20px 20px 0%",
@@ -35,6 +51,10 @@ function SideFilter() {
     },
     select: {
       with: "100px",
+    },
+    scrollCard: {
+      overflowY: "scroll",
+      height: "500px",
     },
   };
 
@@ -80,23 +100,41 @@ function SideFilter() {
     return datos;
   };
 
-  const onClickCheck = (e: any) => {
+  const onClickCheck = async (e: any) => {
     let idCheck = e.target.id;
+    let type = e.target.alt.split(" ")[0];
+    let endpoint = e.target.alt.split(" ")[1];
+    console.log(type, endpoint);
     let element: any = document.getElementsByClassName(`${idCheck}`)[0];
     let display = element.className.split(" ")[1];
     if (display == "d-none") {
+      if (type == "MultipleSelect") {
+        let q = `https://localhost:5001/v1/api/${endpoint}`;
+        //let d = await mapMultiSelect(q);
+        //console.log(d);
+      }
       element.classList.remove("d-none");
     } else {
       element.classList.add("d-none");
     }
-    console.log(display);
+  };
+
+  const dataMultiSelect: any = async (uri: any) => {
+    return await axios.get(uri);
+  };
+
+  const mapMultiSelect: any = async (uri: any) => {
+    let { data } = await dataMultiSelect(uri);
+    return data.map((index:any)=>{
+      <option value={index.id}>{index.value}</option>
+    });
   };
   return (
     <>
       <Card style={style.card}>
-        <Container fluid>
+        <Card.Header style={style.card_header}>
           <h6 className="mt-2">Filtrar Casos por:</h6>
-          <InputGroup className="mb-3 mt-2">
+          <InputGroup className="mb-3 mt-2 fixed">
             <InputGroup.Text id="basic-addon1" style={style.inputButton}>
               <BsSearch />
             </InputGroup.Text>
@@ -107,6 +145,8 @@ function SideFilter() {
               aria-describedby="basic-addon1"
             />
           </InputGroup>
+        </Card.Header>
+        <Container fluid style={style.scrollCard}>
           <a
             style={{ fontWeight: "bold", color: "black" }}
             onClick={onClickIcon}
@@ -156,19 +196,28 @@ function SideFilter() {
             </a>
             {["checkbox"].map((type) => (
               <div key={`inline-${type}`} className="mb-3">
-                {Object.keys(headers).map((h) => (
+                {values.map((h: any) => (
                   <div>
                     <Form.Check
                       inline
                       style={{ color: "black" }}
-                      label={headers[h as keyof typeof headers]}
+                      label={h.title}
                       name="group1"
-                      id={`inline-${type}-${h}`}
+                      id={`inline-${type}-${h.title
+                        .replace(" ", "-")
+                        .replace(" ", "-")
+                        .replace(" ", "-")}`}
                       onClick={onClickCheck}
+                      alt={`${h.type} ${h.endpoint}`}
                     />
-                    <div id={h} className={`inline-${type}-${h} d-none`}>
+                    <div
+                      className={`inline-${type}-${h.title
+                        .replace(" ", "-")
+                        .replace(" ", "-")
+                        .replace(" ", "-")} d-none`}
+                    >
                       <Row>
-                        <Col md={3}>
+                        <Col md={4}>
                           <Form.Select
                             aria-label="Default select example"
                             size="sm"
@@ -185,7 +234,28 @@ function SideFilter() {
                       </Row>
                       <Row>
                         <Col md={6}>
-                          <FormControl className="mt-1" size="sm" />
+                          {h.type == "Textfield" && (
+                            <FormControl className="mt-1" size="sm" />
+                          )}
+                          {h.type == "MultipleSelect" && (
+                            <Form.Select>
+                              <option value="ok">Seleccione</option>
+                              {/*mapMultiSelect(`https://localhost:5001/v1/api/${h.endpoint}`)*/}
+                              <div
+                                id={`${h.type}-${h.title
+                                  .replace(" ", "-")
+                                  .replace(" ", "-")
+                                  .replace(" ", "-")}`}
+                              ></div>
+                            </Form.Select>
+                          )}
+                          {h.type == "Date" && (
+                            <FormControl
+                              type="date"
+                              className="mt-1"
+                              size="sm"
+                            />
+                          )}
                         </Col>
                       </Row>
                     </div>
