@@ -1,7 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
 import debounce from 'lodash.debounce';
-import axios, { AxiosError } from 'axios'
 
 import styles from '../../../public/styles/Autosuggest.module.scss';
 import theme from '../../../public/styles/theme.module.scss';
@@ -15,13 +14,6 @@ import languages from './languages';
 
 //TODO ESTO VA A helpers o utils.js---- 
 const escapeRegexCharacters = (str:string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-function handleAxiosError(error: AxiosError<any, any>) {
-    throw new Error('Function not implemented.');
-}
-function handleUnexpectedError(error: unknown) {
-    throw new Error('Function not implemented.');
-}
 // ------------------------------------
 
 

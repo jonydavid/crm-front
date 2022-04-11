@@ -7,15 +7,15 @@ import SearchGlobal from './searchGlobal'
 
 function CustomNavbar() {
     return (
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <Navbar.Brand href="/"><BsBank2 size="30px"/>    CRM</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="contacts">Contactos</Nav.Link>
-              <Nav.Link href="company">Empresas</Nav.Link>
-              <Nav.Link  href="case">
+              <Nav.Link href="/contacts">Contactos</Nav.Link>
+              <Nav.Link href="/companies">Empresas</Nav.Link>
+              <Nav.Link  href="/cases">
                 Casos
                 {/* <Link href="case">Casos</Link> */}
               </Nav.Link>
@@ -41,7 +41,7 @@ function CustomNavbar() {
               <Button variant="outline-success">Buscar</Button>
             </Form> */}
 
-            <SearchGlobal />
+            {/* <SearchGlobal /> */}
 
             <Nav>
               <Nav.Link href="#deets">icon1</Nav.Link>

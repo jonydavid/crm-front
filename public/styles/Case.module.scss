@@ -1,0 +1,22 @@
+.card {
+    margin-top: 0px;
+    border-radius: 10px 10px 0 0;
+  
+    .header {
+      background: transparent;
+      border-bottom: 0px;
+  
+      .input {
+        border-radius: 0% 20px 20px 0%;
+      }
+  
+      .inputbotton {
+        border-radius: 20px 0 0 20px;
+      }
+    }
+
+    .scrollCard {
+        overflow-y: scroll;
+        height: 550px;
+    }
+}

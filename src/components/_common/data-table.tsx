@@ -1,151 +1,170 @@
 import { Table, Pagination, Checkbox } from "rsuite";
 import { useEffect, useState } from "react";
-import { FaPencilAlt } from 'react-icons/fa';
+import Link from 'next/link'
+import { FaPencilAlt, FaEye } from 'react-icons/fa';
 import "rsuite/dist/rsuite.min.css";
 import { Card } from "react-bootstrap";
-import { componentsHelpers } from 'helpers/componentsHelpers'
 
-function DataTable(dataObject:any) {
-  const { HeaderCell, Cell, Column } = Table;
-  const [loading, setLoading] = useState(false);
-  const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(1);
-  const [checkedKeys, setCheckedKeys] = useState([]);
-  const [headers, setHeaders] = useState({});
-  const [values, setValues] = useState([]);
-  let checked = false;
-  let indeterminate = false;
+import { getListView } from "services/caseService";
 
-  useEffect(() => {
+import { useStoreFilter } from "store/filter/FilterProvider"
+import { useStoreFilter as useStoreFilterResolutionArea } from "store/filterResolutionAreas/FilterProvider"
 
-    setHeaders(componentsHelpers.mapHeader(dataObject) as any);
-    setValues(componentsHelpers.mapValue(dataObject) as any);
-  }, []);
+const DataTable = ({module}:any) => {
+    const storeFilter = useStoreFilter();
+    const storeFilterResolutionArea = useStoreFilterResolutionArea();
+    const { HeaderCell, Cell, Column } = Table;
+    const [loading, setLoading] = useState(true);
+    const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
+    const [checkedKeys, setCheckedKeys] = useState([]);
+    const [headers, setHeaders] = useState({});
+    const [values, setValues] = useState([]);
+    const [total, setTotal] = useState(0);
+    const showRecords:number[] = [10, 20, 50, 100];
 
-  const mouseMove = (e:any)=>{
-    e.target.style.color= 'black'
-  }
-  const mouseOut = (e:any)=>{
-    e.target.style.color= 'white'
-  }
+    let checked = false;
+    let indeterminate = false;
 
-  const styles = {
-    borderRadius:'10px 10px 0px 0px'
-  }
+    useEffect(() => {
+        getListView(module)
+            .then( (res:any) => {
+                setTotal(res.count)
+                setHeaders(Object.keys(res.items[0]))
+            })
+            .catch((e:any) => {
+                setLoading(false)
+                console.log(e)
+            });
+    }, [])
 
-  const CheckCell = ({
-    rowData,
-    onChange,
-    checkedKeys,
-    dataKey,
-    ...props
-  }: any) => (
-    <Cell {...props} style={{ padding: 0, alignItems:'right' }}>
-      <div style={{ lineHeight: "46px" }}>
-      <FaPencilAlt style={{color:"white"}} onMouseMove={mouseMove} onMouseOut={mouseOut} />
-        <Checkbox
-          value={rowData[dataKey]}
-          inline
-          onChange={onChange}
-          checked={checkedKeys.some((item: any) => item === rowData[dataKey])}
-        />
-      </div>
-    </Cell>
-  );
+    useEffect(() => {
+        setLoading(true)
+        getListView(module, storeFilter.type, storeFilterResolutionArea.type, (page-1), limit)
+            .then( (res:any) => {
+                setValues(res.items);
+                setLoading(false)
+            })
+            .catch((e:any) => {
+                setLoading(false)
+                console.log(e)
+            });
+    }, [page, limit, storeFilter, storeFilterResolutionArea])
 
-  const data = values.filter((v, i) => {
-    const start = limit * (page - 1);
-    const end = start + limit;
-    return i >= start && i < end;
-  });
+    if (checkedKeys.length === values.length) {
+        checked = true;
+    } else if (checkedKeys.length === 0) {
+        checked = false;
+    } else if (checkedKeys.length > 0 && checkedKeys.length < values.length) {
+        indeterminate = true;
+    }
 
-  if (checkedKeys.length === values.length) {
-    checked = true;
-  } else if (checkedKeys.length === 0) {
-    checked = false;
-  } else if (checkedKeys.length > 0 && checkedKeys.length < values.length) {
-    indeterminate = true;
-  }
+    const handleChangeLimit = (dataKey: any) =>  setLimit(dataKey);
 
-  const handleChangeLimit = (dataKey: any) => {
-    setPage(1);
-    setLimit(dataKey);
-  };
+    const handleCheckAll = (value: any, checked: any) => {
+        const keys = checked ? values.map((item) => item.id) : [];
+        setCheckedKeys(keys);
+    };
+    
+    const handleCheck = (value: any, checked: any) => {
+        const keys = checked
+        ? [...checkedKeys, value]
+        : checkedKeys.filter((item) => item !== value);
+        setCheckedKeys(keys);
+    };
 
-  const handleCheckAll = (value: any, checked: any) => {
-    const keys = checked ? values.map((item) => item.id) : [];
-    setCheckedKeys(keys);
-  };
-  
-  const handleCheck = (value: any, checked: any) => {
-    const keys = checked
-      ? [...checkedKeys, value]
-      : checkedKeys.filter((item) => item !== value);
-    setCheckedKeys(keys);
-  };
+    const styles = { borderRadius:'10px 10px 0px 0px' }
 
-  return (
-    <>
-      <div style={{ padding: 20 }}>
-        <Pagination
-          prev
-          next
-          first
-          last
-          ellipsis
-          boundaryLinks
-          maxButtons={5}
-          size="xs"
-          layout={["total", "-", "limit", "|", "pager", "skip"]}
-          total={values.length}
-          limitOptions={[10, 20]}
-          limit={limit}
-          activePage={page}
-          onChangePage={setPage}
-          onChangeLimit={handleChangeLimit}
-        />
-      </div>
-      <Card style={styles}>
-        <Table
-          style={styles}
-          height={420}
-          data={data}
-          loading={loading}
-          bordered
-          cellBordered
-          autoHeight
-          affixHeader
-          affixHorizontalScrollbar
-        >
-          <Column width={100} align="center" fixed resizable>
-            <HeaderCell style={{ padding: 0 }}>
-              <div style={{ lineHeight: "40px" }}>
-                <Checkbox
-                  inline
-                  checked={checked}
-                  indeterminate={indeterminate}
-                  onChange={handleCheckAll}
-                />
-              </div>
-            </HeaderCell>
-            <CheckCell
-              dataKey="id"
-              checkedKeys={checkedKeys}
-              onChange={handleCheck}
+    const CheckCell = ({
+        rowData,
+        onChange,
+        checkedKeys,
+        dataKey,
+        ...props
+    }: any) => (
+        <Cell {...props} style={{ padding: 0 }}>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                <Link href={`${module}/edit/${encodeURIComponent(rowData[dataKey])}`}>
+                    <div>
+                        <FaPencilAlt style={{color:"black", cursor:"pointer" }} />
+                    </div>
+                </Link>
+                <Link href={`${module}/show/${encodeURIComponent(rowData[dataKey])}`}>
+                    <div>
+                        <FaEye style={{color:"black", cursor:"pointer" }} />
+                    </div>
+                </Link>
+                {/* <Checkbox
+                    value={rowData[dataKey]}
+                    inline
+                    onChange={onChange}
+                    checked={checkedKeys.some((item: any) => item === rowData[dataKey])}
+                /> */}
+            </div>
+        </Cell>
+    );
+
+    return (
+        <>
+        <Card style={styles}>
+            <Pagination
+                prev
+                next
+                first
+                last
+                ellipsis
+                boundaryLinks
+                maxButtons={5}
+                size="md"
+                layout={["total", "-", "limit", "|", "pager"]}
+                total={total}
+                limitOptions={showRecords}
+                limit={limit}
+                activePage={page}
+                onChangePage={setPage}
+                onChangeLimit={handleChangeLimit}
             />
-          </Column>
-
-          {Object.keys(headers).map((h) => (
-            <Column width={200} align="center" resizable>
-              <HeaderCell>{headers[h as keyof typeof headers]}</HeaderCell>
-              <Cell dataKey={h} />
-            </Column>
-          ))}
-        
-        </Table>
-      </Card>
-    </>
-  );
+            
+                <Table
+                    style={styles}
+                    height={420}
+                    data={values}
+                    loading={loading}
+                    bordered
+                    cellBordered
+                    autoHeight
+                    affixHeader
+                    affixHorizontalScrollbar
+                >
+                    <Column width={100} align="center" fixed resizable>
+                        <HeaderCell style={{ padding: 0 }}>
+                            <div style={{ lineHeight: "40px" }}>
+                                <Checkbox
+                                    inline
+                                    checked={checked}
+                                    indeterminate={indeterminate}
+                                    onChange={handleCheckAll}
+                                />
+                            </div>
+                        </HeaderCell>
+                        <CheckCell
+                            dataKey="id"
+                            checkedKeys={checkedKeys}
+                            onChange={handleCheck}
+                        />
+                    </Column>
+                    
+                    {Object.keys(headers)?.map((header) => (
+                        <Column width={200} align="center" resizable key={header}>
+                            <HeaderCell><b>{headers[header as keyof typeof headers]}</b></HeaderCell>
+                            <Cell dataKey={headers[header as keyof typeof headers]} />
+                        </Column>
+                    ))}
+                
+                </Table>
+            </Card>
+        </>
+    );
 }
 
 export default DataTable;

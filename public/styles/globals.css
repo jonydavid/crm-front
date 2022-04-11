@@ -19,3 +19,11 @@ a {
   color: red;
   text-decoration: none;
 }
+
+.placement-top-start {
+  z-index: 9999 !important;
+}
+
+.rs-pagination-group {
+  padding: 10px;
+}

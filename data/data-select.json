@@ -1,0 +1,34 @@
+[
+    {
+      "label": "Es",
+      "value": "es"
+    },
+    {
+      "label": "No está",
+      "value": "not in"
+    },
+    {
+      "label": "Contiene",
+      "value": "contiene"
+    },
+    {
+      "label": "No contiene",
+      "value": "no contiene"
+    },
+    {
+      "label": "empieza por",
+      "value": "empieza por"
+    },
+    {
+      "label": "Termina por",
+      "value": "termina por"
+    },
+    {
+      "label": "Esta vacio",
+      "value": "esta vacio"
+    },
+    {
+      "label": "No esta vacio",
+      "value": "No esta vacio"
+    }
+  ]
